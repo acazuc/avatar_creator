@@ -5,8 +5,8 @@ function make_seed()
 	    return (float) $sec + ((float) $usec * 100000);
 }
 srand(make_seed());
-define("WIDTH", 420);
-define("HEIGHT", 420);
+define("WIDTH", 200);
+define("HEIGHT", 200);
 $img = imagecreatetruecolor(WIDTH, HEIGHT);
 imagealphablending($img, false);
 $transparency = imagecolorallocatealpha($img, 0, 0, 0, 127);
@@ -14,7 +14,7 @@ imagefill($img, 0, 0, $transparency);
 imagesavealpha($img, true);
 for ($y = 0; $y < HEIGHT; ++$y)
 {
-	$r = rand(0, WIDTH / 4);
+	$r = rand(0, WIDTH / 2);
 	for ($x = $r; $x < WIDTH - $r; ++$x)
 	{
 		$c = imagecolorallocate($img, rand(0, 1) * 255, rand(0, 1) * 255, rand(0, 1) * 255);
@@ -23,7 +23,7 @@ for ($y = 0; $y < HEIGHT; ++$y)
 }
 for ($i = 0; $i < WIDTH; $i++)
 {
-	$r = rand(0, HEIGHT / 4);
+	$r = rand(0, HEIGHT / 2);
 	for ($y = 0; $y < $r; ++$y)
 	{
 		imagesetpixel($img, $i, $y, $transparency);
